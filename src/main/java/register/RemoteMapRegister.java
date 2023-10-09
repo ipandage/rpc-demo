@@ -23,13 +23,13 @@ public class RemoteMapRegister {
     }
 
     private static void saveFile() throws IOException {
-        FileOutputStream fileOutputStream = new FileOutputStream("/temp.text");
+        FileOutputStream fileOutputStream = new FileOutputStream("/Users/gaoxingang/ws/temp.text");
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
         objectOutputStream.writeObject(REGISTER);
     }
 
     private static Map<String, List<URL>> getFile() throws IOException, ClassNotFoundException {
-        FileInputStream fileInputStream = new FileInputStream("/temp.text");
+        FileInputStream fileInputStream = new FileInputStream("/Users/gaoxingang/ws/temp.text");
         ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
         return (Map<String, List<URL>>) objectInputStream.readObject();
     }

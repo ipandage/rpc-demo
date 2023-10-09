@@ -8,6 +8,6 @@ import provider.api.HolleService;
 public class Consumer {
     public static void main(String[] args) {
         HolleService proxy = ProxyFactory.getProxy(HolleService.class);
-        System.out.println(proxy.sayHello("asdasd"));
+        System.out.println(proxy.sayHello("xxxx"));
     }
 }
