@@ -15,9 +15,9 @@ public class ProtocolFactory {
 //        Protocol protocol = extensionLoader.getExtension(url.get);
 //        return protocol;
 
-        ServiceLoader<Protocol> serviceLoader = ServiceLoader.load(Protocol.class);
-        Iterator<Protocol> iterator = serviceLoader.iterator();
-        iterator.next();
+//        ServiceLoader<Protocol> serviceLoader = ServiceLoader.load(Protocol.class);
+//        Iterator<Protocol> iterator = serviceLoader.iterator();
+//        iterator.next();
 
         Protocol protocol = new DubboProtocol();
         return protocol;
