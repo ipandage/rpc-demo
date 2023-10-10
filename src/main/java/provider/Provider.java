@@ -1,6 +1,9 @@
 package provider;
 
+import framework.Protocol;
+import framework.ProtocolFactory;
 import framework.URL;
+import protocol.dubbo.NettyServer;
 import protocol.http.HttpServer;
 import provider.api.HolleService;
 import provider.impl.HolleServiceImpl;
@@ -19,8 +22,13 @@ public class Provider {
         URL url = new URL("localhost", 8080);
         RemoteMapRegister.register(HolleService.class.getName(), url);
 
-        //3、启动tomcat
-        HttpServer server = new HttpServer();
-        server.start("localhost", 8080);
+//        NettyServer server = new NettyServer();
+//        server.start("localhost", 8080);
+
+//        HttpServer server = new HttpServer();
+//        server.start("localhost", 8080);
+
+         Protocol protocol = ProtocolFactory.getProtocol();
+         protocol.start(url);
     }
 }

@@ -7,11 +7,13 @@ import framework.URL;
 public class HttpProtocol implements Protocol {
     @Override
     public void start(URL url) {
-        
+        HttpServer httpServer = new HttpServer();
+        httpServer.start(url.getHostName(), url.getPort());
     }
 
     @Override
-    public void send(URL url, Invocation invocation) {
-
+    public String send(URL url, Invocation invocation) {
+        HttpClient httpClient = new HttpClient();
+        return httpClient.send(url.getHostName(), url.getPort(),invocation);
     }
 }

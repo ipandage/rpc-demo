@@ -9,6 +9,25 @@ import org.apache.catalina.core.StandardEngine;
 import org.apache.catalina.core.StandardHost;
 import org.apache.catalina.startup.Tomcat;
 
+/**
+ * <?xml version="1.0" encoding="UTF-8"?>
+ * <Server port="8005" shutdown="SHUTDOWN">
+ *     <Service name="Catalina">
+ *         <Connector port="8080" protocol="HTTP/1.1"
+ *                    connectionTimeout="20000"
+ *                    redirectPort="8443" />
+ *
+ *         <Engine name="Catalina" defaultHost="localhost">
+ *             <Host name="localhost" appBase="webapps"
+ *                   unpackWARs="true" autoDeploy="true">
+ *                 <Context path="" docBase=""
+ *                          reloadable="true" crossContext="true" />
+ *             </Host>
+ *         </Engine>
+ *     </Service>
+ * </Server>
+ */
+
 public class HttpServer {
     public void start(String hostName, Integer port){
         Tomcat tomcat = new Tomcat();

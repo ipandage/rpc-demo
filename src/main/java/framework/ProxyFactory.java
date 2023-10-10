@@ -1,6 +1,7 @@
 package framework;
 
 import protocol.http.HttpClient;
+import protocol.http.HttpProtocol;
 import provider.api.HolleService;
 import register.RemoteMapRegister;
 
@@ -13,10 +14,10 @@ public class ProxyFactory {
         return (T) Proxy.newProxyInstance(interfaceClass.getClassLoader(), new Class[]{interfaceClass}, new InvocationHandler() {
             @Override
             public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-                HttpClient httpClient = new HttpClient();
+                Protocol protocol = ProtocolFactory.getProtocol();
                 Invocation invocation = new Invocation(interfaceClass.getName(), method.getName(), method.getParameterTypes(), args);
                 URL url = RemoteMapRegister.random(interfaceClass.getName());
-                String result = httpClient.send(url.getHostName(), url.getPort(), invocation);
+                String result = protocol.send(url, invocation);
                 return result;
             }
         });
